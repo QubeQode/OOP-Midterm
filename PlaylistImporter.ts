@@ -9,7 +9,7 @@ export class PlaylistImporter {
         this.importer = importer;
     }
 
-    importPlaylist(name: string, importer: IImportable): Playlist {
-        return new Playlist(name, importer.loadPlaylist());
+    importPlaylist(name: string, importer: IImportable): void {
+        importer.loadPlaylist(name);
     }
 }
