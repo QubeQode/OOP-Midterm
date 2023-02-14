@@ -11,6 +11,8 @@ export class LocalImporter implements IImportable {
     }
 
     loadPlaylist(name: string): Playlist {
+        console.log(`Your playlist at location ${this._filePath} will be loaded`);
+
         const playlistData: {albums: {}[]} = JSON.parse(readFileSync(this._filePath, 'utf-8'));
 
         const data: Song[] = [];
@@ -22,6 +24,7 @@ export class LocalImporter implements IImportable {
                 data.push(song);
             })
         })
+        
         return new Playlist(name, data);
     }
 }

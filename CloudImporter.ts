@@ -12,6 +12,7 @@ export class LocalImporter implements IImportable {
     loadPlaylist(name: string): Playlist {
 
         const data: Song[] = [];
+        
         return new Playlist(name, data);
     }
 }
