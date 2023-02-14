@@ -2,14 +2,15 @@ import { IImportable } from "./IImportable";
 import { Playlist } from "./Playlist";
 import { Song } from "./Song";
 
-export class LocalImporter implements IImportable {
-    private _filePath: string;
+export class CloudImporter implements IImportable {
+    private _url: string;
 
-    constructor(filepath: string) {
-        this._filePath = filepath;
+    constructor(url: string) {
+        this._url = url;
     }
 
-    loadPlaylist(name: string, url: string): Playlist {
+    loadPlaylist(name: string): Playlist {
+        console.log(`Your playlist at location ${this._url} will be loaded`);
 
         const data: Song[] = [];
         return new Playlist(name, data);
