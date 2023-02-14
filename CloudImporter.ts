@@ -18,9 +18,11 @@ export class CloudImporter implements IImportable {
         const song2 = new Song('test2');
         const song3 = new Song('test3');
 
-        const artist = new Artist('someArtist', album1);
+        const album1 = new Album('testAlbum', artist, 1997, [song1, song2, song3]);
+        const artist: Artist = new Artist('someArtist', [album1]);
 
-        const album1 = new Album('testAlbum', 'someArtist', 1997, [song1, song2, song3]);
+
+
 
         const data: Song[] = [];
         return new Playlist(name, data);
