@@ -12,4 +12,8 @@ export class Artist {
     public addAlbum(albumName: Album): void {
         this._albums.push(albumName);
     }
+
+    get albums() {
+        return this._albums;
+    }
 };
