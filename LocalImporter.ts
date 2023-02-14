@@ -11,11 +11,17 @@ export class LocalImporter implements IImportable {
     }
 
     loadPlaylist(name: string): Playlist {
-        const playlistData = readFileSync(this._filePath, 'utf-8');
+        const playlistData: {albums: {}[]} = JSON.parse(readFileSync(this._filePath, 'utf-8'));
+
         const data: Song[] = [];
+        
+        playlistData.albums.forEach(album => {
+            const iterableAlbum: {name: string, tracks: string[]} = JSON.parse(JSON.stringify(album));
+            iterableAlbum.tracks.forEach(track => {
+                const song = new Song(track);
+                data.push(song);
+            })
+        })
         return new Playlist(name, data);
     }
 }
-
-const playlist = readFileSync('./database/database.json', 'utf-8');
-console.log(JSON.parse(playlist));
