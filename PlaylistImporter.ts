@@ -3,15 +3,13 @@ import { Playlist } from "./Playlist";
 
 
 export class PlaylistImporter {
-    playlist: Playlist;
     importer: IImportable;
 
-    constructor(playlist: Playlist, importer: IImportable) {
-        this.playlist = playlist;
+    constructor(importer: IImportable) {
         this.importer = importer;
     }
 
-    importPlaylist(playlist: Playlist, importer: IImportable): void {
-        
+    importPlaylist(name: string, importer: IImportable): Playlist {
+        return new Playlist(name, importer.loadPlaylist());
     }
 }

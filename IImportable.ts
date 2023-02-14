@@ -1,5 +1,5 @@
 import { Playlist } from "./Playlist";
 
 export interface IImportable {
-    loadPlaylist(): void;
+    loadPlaylist(): Playlist;
 }

@@ -1,5 +1,6 @@
 import { IImportable } from "./IImportable";
 import { readFileSync } from "fs";
+import { Playlist } from "./Playlist";
 
 export class LocalImporter implements IImportable {
     private _filePath: string;
@@ -8,9 +9,12 @@ export class LocalImporter implements IImportable {
         this._filePath = filepath;
     }
 
-    loadPlaylist(): void {
-        const playlist = readFileSync('./database/database.json', 'utf-8');
+    loadPlaylist(): Playlist {
+        const playlist = readFileSync(this._filePath, 'utf-8');
+
+        return playlist;
     }
 }
 
 const playlist = readFileSync('./database/database.json', 'utf-8');
+console.log(JSON.parse(playlist));
