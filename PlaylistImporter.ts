@@ -1,5 +1,4 @@
 import { IImportable } from "./IImportable";
-import { Playlist } from "./Playlist";
 
 
 export class PlaylistImporter {

@@ -1,5 +1,6 @@
 import { IImportable } from "./IImportable";
 import { Playlist } from "./Playlist";
+import { Song } from "./Song";
 
 export class LocalImporter implements IImportable {
     private _filePath: string;
@@ -8,7 +9,9 @@ export class LocalImporter implements IImportable {
         this._filePath = filepath;
     }
 
-    loadPlaylist(): void {
-        
+    loadPlaylist(name: string): Playlist {
+
+        const data: Song[] = [];
+        return new Playlist(name, data);
     }
 }
