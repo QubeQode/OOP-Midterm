@@ -9,10 +9,9 @@ export class LocalImporter implements IImportable {
         this._filePath = filepath;
     }
 
-    loadPlaylist(name: string): Playlist {
+    loadPlaylist(name: string, url: string): Playlist {
 
         const data: Song[] = [];
-        
         return new Playlist(name, data);
     }
 }
